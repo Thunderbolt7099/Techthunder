@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Library | Game Management System</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #0d0d0d;
+      color: #fff;
+    }
+
+    nav {
+      background: #1a1a1a;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav h1 {
+      font-size: 1.8rem;
+      color: #00e1ff;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #00e1ff;
+    }
+
+    /* ===== PAGE HEADER ===== */
+    header {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(to right, #001f24, #002b36);
+      color: #00e1ff;
+    }
+
+    header h2 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      color: #ccc;
+    }
+
+    /* ===== SEARCH BAR ===== */
+    .search-bar {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .search-bar input {
+      width: 50%;
+      padding: 10px;
+      border-radius: 25px;
+      border: none;
+      outline: none;
+      font-size: 1rem;
+      background-color: #1a1a1a;
+      color: #fff;
+      box-shadow: 0 0 10px rgba(0, 225, 255, 0.4);
+      transition: 0.3s;
+    }
+
+    .search-bar input:focus {
+      box-shadow: 0 0 15px rgba(0, 225, 255, 0.7);
+    }
+
+    /* ===== GAME CARDS ===== */
+    .game-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      padding: 30px 60px;
+    }
+
+    .game-card {
+      background: #1a1a1a;
+      border-radius: 15px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 0 15px rgba(0, 225, 255, 0.1);
+    }
+
+    .game-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 25px rgba(0, 225, 255, 0.5);
+    }
+
+    .game-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .game-info {
+      padding: 15px;
+    }
+
+    .game-info h3 {
+      color: #00e1ff;
+      margin-bottom: 5px;
+    }
+
+    .game-info p {
+      color: #ccc;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+
+    .game-info button {
+      background: #00e1ff;
+      color: #000;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .game-info button:hover {
+      background: #00b3cc;
+    }
+
+    footer {
+      background: #111;
+      text-align: center;
+      padding: 20px;
+      color: #888;
+      margin-top: 50px;
+    }
+
+    footer a {
+      color: #00e1ff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION BAR -->
+  <nav>
+    <img src="images/Game Stream.jpg" alt="GStream" class="logo" style="height:60px;">
+    <ul>
+      <li><a href="Domain Module.html">Home</a></li>
+      <li><a href="games.html">Games</a></li>
+      <li><a href="search.html">Search</a></li>
+      <li><a href="category.html">Category</a></li>
+      <li><a href="purchase.html">Purchase</a></li>
+      <li><a href="players.html">User</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="about.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HEADER -->
+  <header>
+    <h2>Game Library</h2>
+    <p>Explore and manage your favorite games in one place.</p>
+  </header>
+
+  <!-- SEARCH BAR -->
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search games by name or genre..." onkeyup="filterGames()">
+  </div>
+
+  <!-- GAME CARDS -->
+  <div class="game-container" id="gameContainer">
+    <div class="game-card" data-name="Red Dead Redemption 2" data-genre="Action">
+      <img src="https://i.pinimg.com/736x/d2/a4/5c/d2a45cc2083abc8bf1c21e47e0b29c3a.jpg" alt="Red Dead Redemption 2">
+      <div class="game-info">
+        <h3>Red Dead Redemption 2</h3>
+        <p>Genre: Action | Platform: PC</p>
+        <button><a href="https://en.wikipedia.org/wiki/Red_Dead_Redemption_2">View Details</a></button>
+      </div>
+    </div>
+
+    <div class="game-card" data-name="FIFA 25" data-genre="Sports">
+      <img src="https://i.pinimg.com/1200x/c9/27/d0/c927d0a5034f736d6c65594f5f9563ed.jpg" alt="FIFA 25">
+      <div class="game-info">
+        <h3>FIFA 25</h3>
+        <p>Genre: Sports | Platform: Console</p>
+        <button><a href="https://en.wikipedia.org/wiki/EA_Sports_FC_25">View Details</a></button>
+      </div>
+    </div>
+
+    <div class="game-card" data-name="Minecraft" data-genre="Adventure">
+      <img src="https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/key-art/Homepage_Discover-our-games_MC-Vanilla-KeyArt_864x864.jpg" alt="Minecraft">
+      <div class="game-info">
+        <h3>Minecraft</h3>
+        <p>Genre: Adventure | Platform: PC</p>
+        <button><a href="https://en.wikipedia.org/wiki/Minecraft">View Details</a></button>
+      </div>
+    </div>
+
+    <div class="game-card" data-name="Valorant" data-genre="Shooter">
+      <img src="https://i.pinimg.com/736x/a5/a7/ef/a5a7ef5bf921c2028bf9246f87975050.jpg" alt="Valorant">
+      <div class="game-info">
+        <h3>Valorant</h3>
+        <p>Genre: Shooter | Platform: PC</p>
+        <button><a href="https://en.wikipedia.org/wiki/Valorant">View Details</a></button>
+      </div>
+    </div>
+
+    <div class="game-card" data-name="PUBG" data-genre="Battle Royale">
+      <img src="https://t3.ftcdn.net/jpg/04/05/84/78/240_F_405847857_kVp2nHoNWMgC9uArQRQg4sQKbf9VPDQ0.jpg" alt="PUBG">
+      <div class="game-info">
+        <h3>PUBG</h3>
+        <p>Genre: Battle Royale | Platform: Mobile</p>
+        <button><a href="https://en.wikipedia.org/wiki/PUBG:_Battlegrounds">View Details</a></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Game Management System | Designed by <a href="#">Titan Corporation</a></p>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    function filterGames() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const cards = document.querySelectorAll('.game-card');
+      
+      cards.forEach(card => {
+        const name = card.getAttribute('data-name').toLowerCase();
+        const genre = card.getAttribute('data-genre').toLowerCase();
+        if (name.includes(input) || genre.includes(input)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

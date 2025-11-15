@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Management System</title>
+
+  <style>
+    /* ==== BASIC RESET ==== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #0d0d0d;
+      color: #fff;
+    }
+
+    /* ==== NAVIGATION ==== */
+    nav {
+      background: #1a1a1a;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav h1 {
+      font-size: 1.8rem;
+      color: #00e1ff;
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #00e1ff;
+    }
+
+    /* ==== HERO SECTION ==== */
+    .hero {
+      background: url('https://wallpapercave.com/wp/wp9504044.jpg') no-repeat center center/cover;
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      z-index: 1;
+      text-shadow: 0 0 15px #00e1ff;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #00e1ff; }
+      to { text-shadow: 0 0 25px #00e1ff; }
+    }
+
+    .hero p {
+      z-index: 1;
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+
+    .hero button {
+      margin-top: 20px;
+      padding: 10px 25px;
+      font-size: 1rem;
+      background: #00e1ff;
+      border: none;
+      border-radius: 5px;
+      color: #000;
+      cursor: pointer;
+      transition: background 0.3s;
+      z-index: 1;
+    }
+
+    .hero button:hover {
+      background: #00b3cc;
+    }
+
+    /* ==== MODULE SECTION ==== */
+    .modules {
+      padding: 50px 80px;
+      text-align: center;
+    }
+
+    .modules h2 {
+      font-size: 2rem;
+      color: #00e1ff;
+      margin-bottom: 30px;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: #1a1a1a;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 0 15px rgba(0, 225, 255, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 25px rgba(0, 225, 255, 0.5);
+    }
+
+    .card h3 {
+      color: #00e1ff;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    /* ==== FOOTER ==== */
+    footer {
+      background: #111;
+      text-align: center;
+      padding: 20px;
+      color: #888;
+      margin-top: 50px;
+    }
+
+    footer a {
+      color: #00e1ff;
+      text-decoration: none;
+    }
+
+    .logo {
+  height: auto;
+  width: auto;
+  cursor: pointer;
+}
+
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION BAR -->
+ <nav>
+    <img src="images/Game Stream.jpg" alt="GStream" class="logo" style="height:60px;">
+    <ul>
+      <li><a href="Domain Module.html">Home</a></li>
+      <li><a href="games.html">Games</a></li>
+      <li><a href="search.html">Search</a></li>
+      <li><a href="category.html">Category</a></li>
+      <li><a href="purchase.html">Purchase</a></li>
+      <li><a href="players.html">User</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="about.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <h2>Welcome to GStream</h2>
+    <p>Manage, Track, and Compete in the World of Gaming</p>
+    <button onclick="showAlert()">Explore Now</button>
+  </section>
+
+  <!-- MODULES SECTION -->
+  <section class="modules">
+  <h2>Our Modules</h2>
+  <div class="card-container">
+
+    <div class="card">
+      <h3>User & Player Management</h3>
+      <p>Manage user and player profiles efficiently — including registration, updating details, tracking progress, and managing player statistics within the system.</p>
+    </div>
+
+    <div class="card">
+      <h3>Game Library Management</h3>
+      <p>Maintain a comprehensive collection of games with their details such as title, genre, release date, and developer information. Add, edit, or remove games easily.</p>
+    </div>
+
+    <div class="card">
+      <h3>Authentication Module</h3>
+      <p>Ensure secure access for users and administrators through login, signup, and role-based authorization features for safe and controlled usage.</p>
+    </div>
+
+    <div class="card">
+      <h3>Search and Filter Module</h3>
+      <p>Quickly find games or players using search bars and filters by genre, release year, or ranking — making navigation simple and fast.</p>
+    </div>
+
+    <div class="card">
+      <h3>Game Category Module</h3>
+      <p>Organize games into categories such as Action, Puzzle, Sports, or RPG, helping users explore games based on their preferred genres.</p>
+    </div>
+
+    <div class="card">
+      <h3>Purchase Management</h3>
+      <p>Manage game purchases and transactions. Keep track of available stock, payment status, and purchase history for every player.</p>
+    </div>
+
+    <div class="card">
+      <h3>Contact Module</h3>
+      <p>Allow users and players to reach the admin or support team easily via contact forms or queries for assistance and feedback.</p>
+    </div>
+
+  </div>
+</section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Game Management System | Designed by <a href="#">Titan Corporation</a></p>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    function showAlert() {
+      alert("Welcome Gamer! Explore the modules below 👾");
+    }
+  </script>
+</body>
+</html>

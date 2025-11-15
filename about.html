@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact – GStream</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #0d0d0d;
+      color: #fff;
+    }
+
+    /* NAVIGATION */
+    nav {
+      background: #1a1a1a;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav h1 {
+      font-size: 1.8rem;
+      color: #00e1ff;
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #00e1ff;
+    }
+
+    /* CONTACT HEADER */
+    .contact-header {
+      text-align: center;
+      padding: 70px 20px;
+      background: url('https://wallpapercave.com/wp/wp9504044.jpg') no-repeat center/cover;
+      position: relative;
+    }
+
+    .contact-header::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+    }
+
+    .contact-header h2 {
+      font-size: 3rem;
+      color: #00e1ff;
+      position: relative;
+      z-index: 1;
+      text-shadow: 0 0 20px #00e1ff;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #00e1ff; }
+      to   { text-shadow: 0 0 25px #00e1ff; }
+    }
+
+    .contact-container {
+      padding: 60px 80px;
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .box {
+      background: #1a1a1a;
+      padding: 30px;
+      width: 380px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 225, 255, 0.2);
+      transition: 0.3s;
+    }
+
+    .box:hover {
+      box-shadow: 0 0 30px rgba(0, 225, 255, 0.5);
+      transform: translateY(-8px);
+    }
+
+    .box h3 {
+      color: #00e1ff;
+      margin-bottom: 15px;
+    }
+
+    .box p {
+      color: #ccc;
+      margin-bottom: 10px;
+    }
+
+    /* CONTACT FORM */
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 10px;
+      background: #111;
+      border: 1px solid #00e1ff;
+      color: #fff;
+      border-radius: 5px;
+    }
+
+    .contact-form button {
+      width: 100%;
+      padding: 12px;
+      background: #00e1ff;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      color: #000;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .contact-form button:hover {
+      background: #00b3cc;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #111;
+      text-align: center;
+      padding: 20px;
+      color: #888;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: #00e1ff;
+      text-decoration: none;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+     <img src="images/Game Stream.jpg" alt="GStream" class="logo" style="height:60px;">
+    <ul>
+      <li><a href="Domain Module.html">Home</a></li>
+      <li><a href="games.html">Games</a></li>
+      <li><a href="search.html">Search</a></li>
+      <li><a href="category.html">Category</a></li>
+      <li><a href="purchase.html">Purchase</a></li>
+      <li><a href="players.html">User</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- CONTACT HEADER -->
+  <section class="contact-header">
+    <h2>Contact Us</h2>
+  </section>
+
+  <!-- CONTACT CONTENT -->
+  <section class="contact-container">
+
+    <!-- COMPANY INFO -->
+    <div class="box">
+      <h3>About Titan Corporation</h3>
+      <p>
+        Titan Corporation is committed to delivering world-class digital
+        solutions and gaming management systems. Our team focuses on
+        innovation, performance, and futuristic technology.
+      </p>
+    </div>
+
+    <!-- CONTACT DETAILS -->
+    <div class="box">
+      <h3>Contact Details</h3>
+      <p><strong>Company:</strong> Titan Corporation</p>
+      <p><strong>Address:</strong> Titan Towers, Tech Park Road, Bangalore, India – 560001</p>
+      <p><strong>Email:</strong> support@titancorp.com</p>
+      <p><strong>Phone:</strong> +91 98765 43210</p>
+      <p><strong>Support Hours:</strong> Mon–Sat: 9 AM – 7 PM</p>
+    </div>
+
+    <!-- CONTACT FORM -->
+    <div class="box contact-form">
+      <h3>Send Us a Message</h3>
+      <form onsubmit="clearForm(); return false;">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <textarea placeholder="Your Message" rows="4" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 GStream | Designed by <a href="#">Titan Corporation</a></p>
+  </footer>
+
+  <script>
+    function clearForm() {
+      alert("Message Sent Successfully ✔");
+      document.querySelector("form").reset();
+    }
+  </script>
+
+</body>
+</html>

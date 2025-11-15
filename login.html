@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | GStream</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #0d0d0d;
+      color: #fff;
+    }
+
+    /* NAVIGATION */
+    nav {
+      background: #1a1a1a;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav h1 {
+      font-size: 1.8rem;
+      color: #00e1ff;
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover, nav ul li a.active {
+      color: #00e1ff;
+    }
+
+    /* WRAPPER */
+    .wrapper {
+      display: flex;
+      justify-content: center;
+      margin-top: 120px;
+      padding-bottom: 50px;
+    }
+
+    .card {
+      background: #1a1a1a;
+      width: 380px;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(0, 225, 255, 0.2);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 25px rgba(0, 225, 255, 0.5);
+    }
+
+    /* TITLE ANIMATION */
+    .card h2 {
+      color: #00e1ff;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-shadow: 0 0 15px #00e1ff;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #00e1ff; }
+      to { text-shadow: 0 0 25px #00e1ff; }
+    }
+
+    /* TABS */
+    .tabs {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .tabs button {
+      width: 48%;
+      padding: 10px;
+      border: none;
+      background: #222;
+      color: #fff;
+      border-radius: 8px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .tabs button.active {
+      background: #00e1ff;
+      color: #000;
+      box-shadow: 0 0 12px #00e1ff;
+    }
+
+    /* FORMS */
+    .form { display: none; }
+    .form.active { display: block; }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 6px;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      background: #00e1ff;
+      border: none;
+      border-radius: 8px;
+      margin-top: 10px;
+      color: #000;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #00b3cc;
+      box-shadow: 0 0 10px #00e1ff;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #111;
+      text-align: center;
+      padding: 20px;
+      color: #888;
+      margin-top: 50px;
+    }
+
+    footer a {
+      color: #00e1ff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+   <img src="images/Game Stream.jpg" alt="GStream" class="logo" style="height:60px;">
+  <ul>
+    <li><a href="Domain Module.html">Home</a></li>
+    <li><a href="games.html">Games</a></li>
+    <li><a href="search.html">Search</a></li>
+    <li><a href="category.html">Category</a></li>
+    <li><a href="purchase.html">Purchase</a></li>
+    <li><a href="players.html">User</a></li>
+    <li><a class="active" href="login.html">Login</a></li>
+    <li><a href="about.html">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- LOGIN/REGISTER BOX -->
+<div class="wrapper">
+  <div class="card">
+
+    <h2>Welcome Gamer</h2>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchForm('login')">Login</button>
+      <button class="tab-btn" onclick="switchForm('register')">Register</button>
+    </div>
+
+    <!-- LOGIN FORM -->
+    <div id="login" class="form active">
+      <input type="text" id="login-user" placeholder="Username">
+      <input type="password" id="login-pass" placeholder="Password">
+      <button class="btn" onclick="loginUser()">Login</button>
+    </div>
+
+    <!-- REGISTER FORM -->
+    <div id="register" class="form">
+      <input type="text" id="reg-name" placeholder="Full Name">
+      <input type="email" id="reg-email" placeholder="Email">
+      <input type="text" id="reg-user" placeholder="Username">
+      <input type="password" id="reg-pass" placeholder="Password">
+      <button class="btn" onclick="registerUser()">Register</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Game Management System | Designed by <a href="#">Titan Corporation</a></p>
+</footer>
+
+<script>
+  /* ---- TAB SWITCH ---- */
+  function switchForm(form) {
+    document.querySelectorAll('.form').forEach(f => f.classList.remove('active'));
+    document.getElementById(form).classList.add('active');
+
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+  }
+
+  /* ---- LOGIN ---- */
+  function loginUser() {
+    alert("Login Successful!");
+
+    // Clear fields automatically
+    document.getElementById('login-user').value = "";
+    document.getElementById('login-pass').value = "";
+  }
+
+  /* ---- REGISTER ---- */
+  function registerUser() {
+    alert("Registration Completed!");
+
+    // Clear fields automatically
+    document.getElementById('reg-name').value = "";
+    document.getElementById('reg-email').value = "";
+    document.getElementById('reg-user').value = "";
+    document.getElementById('reg-pass').value = "";
+  }
+</script>
+
+</body>
+</html>
